@@ -18,7 +18,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jacoco.version>0.7.9</jacoco.version>
 		<surefire.version>2.17</surefire.version>
-		<!-- This listner is required if you change default report path of Jacoco-->
+		<!-- This listner is required if you change default report path of Jacoco -->
 		<sonar-jacoco-listeners.version>3.2</sonar-jacoco-listeners.version>
 	</properties>
 	<scm>
@@ -141,7 +141,7 @@
 			<version>${sonar-jacoco-listeners.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- Junit + mockito-->
+		<!-- Junit + mockito -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -163,7 +163,7 @@
 			<id>sonarjacococoverage</id>
 		</profile>
 	</profiles>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -196,19 +196,11 @@
 				<version>${surefire.version}</version>
 				<!-- This configuration is required to read Jacoco report path from Sonar, 
 					if default path is changed. Default path is target/jacoco.exec -->
-				<!-- <configuration>
-					<argLine>${jacoco.agent.ut.arg}</argLine>
-					Specific
-					to generate mapping between tests and covered code
-					<properties>
-						<property>
-							<name>listener</name>
-							<value>org.sonar.java.jacoco.JUnitListener</value>
-						</property>
-					</properties>
-					test failure ignore
-					<testFailureIgnore>true</testFailureIgnore>
-				</configuration> -->
+				<!-- <configuration> <argLine>${jacoco.agent.ut.arg}</argLine> Specific 
+					to generate mapping between tests and covered code <properties> <property> 
+					<name>listener</name> <value>org.sonar.java.jacoco.JUnitListener</value> 
+					</property> </properties> test failure ignore <testFailureIgnore>true</testFailureIgnore> 
+					</configuration> -->
 			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
@@ -252,4 +244,16 @@
 		</plugins>
 		<finalName>SpringMVCHibernate</finalName>
 	</build>
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Internal Releases</name>
+			<url>http://localhost:8088/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Internal Snapshots</name>
+			<url>http://localhost:8088/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
